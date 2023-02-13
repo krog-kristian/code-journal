@@ -1,0 +1,7 @@
+.journal-photo > img {
+  width: 100%;
+}
+
+label {
+  display: block;
+}
