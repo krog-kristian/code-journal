@@ -6,15 +6,19 @@ $inputURL.addEventListener('input', function () {
   $photoImage.setAttribute('src', event.target.value);
 });
 
-var $form = document.querySelector('form');
+var $formJournal = document.querySelector('form');
 
-$form.addEventListener('submit', save);
+$formJournal.addEventListener('submit', save);
 
 function save(event) {
   event.preventDefault();
   var formInput = {};
-  formInput.title = $form.elements.title.value;
-  formInput.photo = $form.elements.photo.value;
-  formInput.notes = $form.elements.notes.value;
+  formInput.title = $formJournal.elements.title.value;
+  formInput.photo = $formJournal.elements.photo.value;
+  formInput.notes = $formJournal.elements.notes.value;
   formInput.entryId = data.nextEntryId;
+  data.nextEntryId += 1;
+  data.entries.push(formInput);
+  $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $formJournal.reset();
 }
