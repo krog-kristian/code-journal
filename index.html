@@ -14,13 +14,17 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600&display=swap"
+    rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h1>Code Journal</h1>
+          <h1 class="white-text">Code Journal</h1>
         </div>
       </div>
     </div>
@@ -42,10 +46,10 @@
 
         <div class="column-full">
           <label for="notes">Notes</label>
-          <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+          <textarea name="notes" id="notes" rows="10"></textarea>
         </div>
 
-        <div class="column-full"><button type="submit">Save</button></div>
+        <div class="column-full flex-end"><button type="submit" id="save">SAVE</button></div>
 
       </form>
 

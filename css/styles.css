@@ -1,7 +1,67 @@
+/* General */
+body {
+  background-color: #f0f0f0;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1.5rem auto;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: block;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  outline: none;
+  resize: none;
+}
+
+header {
+  background-color: #562b81;
+}
+
 .journal-photo > img {
   width: 100%;
 }
 
-label {
-  display: block;
+/* Utilities */
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.white-text {
+  color: white;
+}
+
+/* Buttons and Inputs */
+input:focus,
+textarea:focus {
+  border: 3px solid #562b81;
+}
+
+#save {
+  border: none;
+  border-radius: 5%;
+  color: white;
+  background-color: #562b81;
+  width: 4rem;
+  height: 1.75rem;
+  margin: 1rem 0;
+  letter-spacing: 0.1rem;
 }
