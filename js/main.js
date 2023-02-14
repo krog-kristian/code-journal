@@ -22,7 +22,7 @@ function save(event) {
   data.entries.unshift(formInput);
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
-  $entryList.appendChild(renderEntry(data.entries[0]));
+  $entryList.prepend(renderEntry(formInput));
   viewSwap('entries');
   if ($noEntries.classList.length === 0) {
     toggleNoEntries();
