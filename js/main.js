@@ -90,7 +90,7 @@ function viewSwap(view) {
   }
 }
 
-var $entriesAnchor = document.querySelector('.row > .header-link');
+var $entriesAnchor = document.querySelector('.column-full > .header-link');
 
 $entriesAnchor.addEventListener('click', function () {
   var viewTarget = $entriesAnchor.getAttribute('data-view');

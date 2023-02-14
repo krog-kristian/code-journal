@@ -52,6 +52,10 @@ header {
   background-color: #562b81;
 }
 
+ul {
+  padding: 0;
+}
+
 .journal-photo > img {
   width: 100%;
   border-radius: 0.5rem;
@@ -81,6 +85,10 @@ header {
   text-align: center;
 }
 
+.flex {
+  display: flex;
+}
+
 /* Buttons and Inputs */
 input:focus,
 textarea:focus {
@@ -105,8 +113,13 @@ textarea:focus {
   color: white;
   background-color: #562b81;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 1rem 0;
+  font-family:
+    "Source Sans Pro",
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
 #save:hover {
@@ -119,7 +132,7 @@ textarea:focus {
   color: white;
   background-color: #562b81;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   margin: 1rem 0;
   align-self: flex-end;
