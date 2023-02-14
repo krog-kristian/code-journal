@@ -54,3 +54,15 @@ document.addEventListener('DOMContentLoaded', function () {
     $entryList.appendChild(renderEntry(data.entries[i]));
   }
 });
+
+var $noEntries = document.querySelector('div[data-view=entries] .text-cen p');
+
+function toggleNoEntries() {
+  if ($noEntries.classList[0] === undefined) {
+    $noEntries.setAttribute('class', 'hidden');
+  } else {
+    $noEntries.setAttribute('class', '');
+  }
+}
+
+toggleNoEntries();
