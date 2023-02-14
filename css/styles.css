@@ -12,7 +12,16 @@ h1 {
 
 h2 {
   font-size: 2.5rem;
-  margin: 1rem auto;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,7 +52,16 @@ header {
   background-color: #562b81;
 }
 
+ul {
+  padding: 0;
+}
+
 .journal-photo > img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.entry-photos > img {
   width: 100%;
   border-radius: 0.5rem;
 }
@@ -58,10 +76,35 @@ header {
   color: white;
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-cen {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
 /* Buttons and Inputs */
 input:focus,
 textarea:focus {
   border: 3px solid #562b81;
+}
+
+.header-link {
+  color: white;
+  margin: auto 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.header-link:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 #save {
@@ -69,7 +112,32 @@ textarea:focus {
   border-radius: 0.25rem;
   color: white;
   background-color: #562b81;
-  padding: 0.25rem 0.75rem;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
   margin: 1rem 0;
+  font-family:
+    "Source Sans Pro",
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+#save:hover {
+  cursor: pointer;
+}
+
+#new-entry {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #562b81;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  align-self: flex-end;
+}
+
+#new-entry:hover {
+  cursor: pointer;
 }
