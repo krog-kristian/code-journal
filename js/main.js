@@ -65,4 +65,21 @@ function toggleNoEntries() {
   }
 }
 
+function viewSwap(view) {
+  if (view === 'entries') {
+    var $view = document.querySelector('[data-view=entries]');
+    $view.setAttribute('class', '');
+    data.view = view;
+    var $oldView = document.querySelector('[data-view=entry-form');
+    $oldView.setAttribute('class', 'hidden');
+  } else {
+    $view = document.querySelector('[data-view=entry-form]');
+    $view.setAttribute('class', '');
+    data.view = view;
+    $oldView = document.querySelector('[data-view=entries');
+    $oldView.setAttribute('class', 'hidden');
+  }
+}
+
 toggleNoEntries();
+viewSwap();
