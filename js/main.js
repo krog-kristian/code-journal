@@ -34,6 +34,7 @@ function save(event) {
 function renderEntry(entry) {
   var $listEntry = document.createElement('li');
   $listEntry.setAttribute('class', 'row');
+  $listEntry.setAttribute('data-entry-id', entry.entryId);
   var $photoDiv = document.createElement('div');
   var $image = document.createElement('img');
   $photoDiv.setAttribute('class', 'column-half entry-photos');
@@ -44,6 +45,11 @@ function renderEntry(entry) {
   $textDiv.setAttribute('class', 'column-half');
   var $entryTitle = document.createElement('h3');
   $entryTitle.textContent = entry.title;
+  $entryTitle.setAttribute('class', 'space-between');
+  var $faPencil = document.createElement('i');
+  $faPencil.setAttribute('class', 'fa fa-pencil');
+  $faPencil.setAttribute('aria-hidden', 'true');
+  $entryTitle.appendChild($faPencil);
   $textDiv.appendChild($entryTitle);
   var $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
