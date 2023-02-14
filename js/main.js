@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
   for (var i = 0; i < data.entries.length; i++) {
     $entryList.appendChild(renderEntry(data.entries[i]));
   }
+  viewSwap(data.view);
+  if (data.entries.length >= 1) {
+    toggleNoEntries();
+  }
 });
 
 var $noEntries = document.querySelector('div[data-view=entries] .text-cen p');
