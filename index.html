@@ -32,7 +32,7 @@
 
   <main class="container">
 
-    <div data-view="entry-form">
+    <div data-view="entry-form" class="hidden">
       <h2>New Entry</h2>
       <form action="" class="row">
         <div class="column-half journal-photo"><img src="images/placeholder-image-square.jpg" alt="place holder for image"></div>
@@ -55,38 +55,17 @@
 
     </div>
 
-    <div data-view="entries" class="hiden">
+    <div data-view="entries">
+      <div class="row">
+        <div class="column-full space-between">
+          <h2>Entries</h2>
+          <button id="new-entry">NEW</button>
+        </div>
+        <div class="column-full text-cen">
+          <p>No Entries have been recorded.</p>
+        </div>
+      </div>
       <ul>
-        <li class="row">
-
-          <div class="column-half entry-photos"><img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png" alt=""></div>
-          <div class="column-half">
-            <h3>Squirtle</h3>
-            <p>When it retracts its long neck into its shell, it squirts out water with vigorous force.</p>
-          </div>
-
-        </li>
-
-        <li class="row">
-          <div class="column-half entry-photos"><img src="https://upload.wikimedia.org/wikipedia/en/4/42/Master_chief_halo_infinite.png" alt="">
-          </div>
-          <div class="column-half">
-            <h3>Master Chief</h3>
-            <p>Master Chief Petty Officer John-117, or Master Chief, is a fictional character and the protagonist in the Halo
-            multimedia franchise. Master Chief is a playable character in the series of military science fiction first-person
-            shooter video games Halo: Combat Evolved, Halo 2, Halo 3, Halo 4, Halo 5: Guardians and Halo Infinite. The character
-            also appears in Halo books and graphic novels  including Halo: The Fall of Reach, Halo: The Flood, Halo: First Strike,
-            and Halo: Uprising  and has minor appearances or cameos in other Halo media.
-
-            The Master Chief is a towering supersoldier known as a Spartan, raised and trained from childhood for combat. He is
-            almost faceless as he is rarely seen without his green-colored armor and helmet. He is commonly referred to by his naval
-            rank rather than his given birth name. The character is voiced by Steve Downes, a former Chicago disc jockey, in the
-            video games in which he appears, while in alternate media outside the Halo games, he is portrayed by other actors, most
-            notably Pablo Schreiber in the live-action Halo TV series. Downes based his personification of the Chief on an initial
-            character sketch, which called for a Clint Eastwoodtype character of few words. With each new appearance, the
-            character's visual design underwent revamping or updates.</p>
-          </div>
-        </li>
       </ul>
     </div>
 

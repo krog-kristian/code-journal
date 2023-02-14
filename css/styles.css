@@ -12,7 +12,7 @@ h1 {
 
 h2 {
   font-size: 2.5rem;
-  margin: 1rem auto;
+  margin: 1rem 0;
 }
 
 h3 {
@@ -72,6 +72,15 @@ header {
   color: white;
 }
 
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-cen {
+  text-align: center;
+}
+
 /* Buttons and Inputs */
 input:focus,
 textarea:focus {
@@ -83,7 +92,18 @@ textarea:focus {
   border-radius: 0.25rem;
   color: white;
   background-color: #562b81;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   margin: 1rem 0;
+}
+
+#new-entry {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #562b81;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+  align-self: flex-end;
 }
