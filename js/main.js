@@ -24,7 +24,7 @@ function save(event) {
   $formJournal.reset();
   $entryList.appendChild(renderEntry(data.entries[0]));
   viewSwap('entries');
-  if (data.entries.length >= 1) {
+  if ($noEntries.classList.length === 0) {
     toggleNoEntries();
   }
 }
@@ -59,18 +59,19 @@ document.addEventListener('DOMContentLoaded', function () {
     $entryList.appendChild(renderEntry(data.entries[i]));
   }
   viewSwap(data.view);
-  if (data.entries.length >= 1) {
+  if (data.entries.length === 0) {
     toggleNoEntries();
   }
 });
 
 var $noEntries = document.querySelector('div[data-view=entries] .text-cen p');
-
+// console.log('p', $noEntries);
+// console.log($noEntries.classList[0]);
 function toggleNoEntries() {
-  if ($noEntries.classList[0] === undefined) {
-    $noEntries.setAttribute('class', 'hidden');
+  if ($noEntries.classList.contains('hidden')) {
+    $noEntries.classList.remove('hidden');
   } else {
-    $noEntries.setAttribute('class', '');
+    $noEntries.classList.add('hidden');
   }
 }
 
