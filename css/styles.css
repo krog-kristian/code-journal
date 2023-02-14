@@ -1,0 +1,75 @@
+/* General */
+body {
+  background-color: #f0f0f0;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 1rem auto;
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    padding: 0 0.75rem;
+  }
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: block;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  outline: none;
+  resize: none;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+header {
+  background-color: #562b81;
+}
+
+.journal-photo > img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Utilities */
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.white-text {
+  color: white;
+}
+
+/* Buttons and Inputs */
+input:focus,
+textarea:focus {
+  border: 3px solid #562b81;
+}
+
+#save {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #562b81;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
