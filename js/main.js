@@ -18,7 +18,7 @@ function save(event) {
   formInput.notes = $formJournal.elements.notes.value;
   formInput.entryId = data.nextEntryId;
   data.nextEntryId += 1;
-  data.entries.push(formInput);
+  data.entries.unshift(formInput);
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
 }
