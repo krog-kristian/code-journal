@@ -22,6 +22,11 @@ function save(event) {
   data.entries.unshift(formInput);
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
+  $entryList.appendChild(renderEntry(data.entries[0]));
+  viewSwap('entries');
+  if (data.entries.length >= 1) {
+    toggleNoEntries();
+  }
 }
 
 // Viewing Entries
@@ -66,8 +71,7 @@ function toggleNoEntries() {
 }
 
 function viewSwap(view) {
-  var viewTarget = view.target.getAttribute('data-view');
-  if (viewTarget === 'entries') {
+  if (view === 'entries') {
     var $view = document.querySelector('div[data-view=entries]');
     $view.setAttribute('class', '');
     data.view = view;
@@ -76,7 +80,7 @@ function viewSwap(view) {
   } else {
     $view = document.querySelector('div[data-view=entry-form]');
     $view.setAttribute('class', '');
-    data.view = viewTarget;
+    data.view = view;
     $oldView = document.querySelector('div[data-view=entries');
     $oldView.setAttribute('class', 'hidden');
   }
@@ -84,10 +88,14 @@ function viewSwap(view) {
 
 var $entriesAnchor = document.querySelector('.row > .header-link');
 
-$entriesAnchor.addEventListener('click', viewSwap);
-
-toggleNoEntries();
+$entriesAnchor.addEventListener('click', function () {
+  var viewTarget = $entriesAnchor.getAttribute('data-view');
+  viewSwap(viewTarget);
+});
 
 var $entriesFormAnchor = document.querySelector('#new-entry');
 
-$entriesFormAnchor.addEventListener('click', viewSwap);
+$entriesFormAnchor.addEventListener('click', function () {
+  var viewTarget = $entriesFormAnchor.getAttribute('data-view');
+  viewSwap(viewTarget);
+});
