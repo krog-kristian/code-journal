@@ -87,6 +87,18 @@ textarea:focus {
   border: 3px solid #562b81;
 }
 
+.header-link {
+  color: white;
+  margin: auto 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.header-link:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
 #save {
   border: none;
   border-radius: 0.25rem;

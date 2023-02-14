@@ -66,20 +66,24 @@ function toggleNoEntries() {
 }
 
 function viewSwap(view) {
-  if (view === 'entries') {
-    var $view = document.querySelector('[data-view=entries]');
+  var viewTarget = view.target.getAttribute('data-view');
+  if (viewTarget === 'entries') {
+    var $view = document.querySelector('div[data-view=entries]');
     $view.setAttribute('class', '');
     data.view = view;
-    var $oldView = document.querySelector('[data-view=entry-form');
+    var $oldView = document.querySelector('div[data-view=entry-form');
     $oldView.setAttribute('class', 'hidden');
   } else {
-    $view = document.querySelector('[data-view=entry-form]');
+    $view = document.querySelector('div[data-view=entry-form]');
     $view.setAttribute('class', '');
-    data.view = view;
-    $oldView = document.querySelector('[data-view=entries');
+    data.view = viewTarget;
+    $oldView = document.querySelector('div[data-view=entries');
     $oldView.setAttribute('class', 'hidden');
   }
 }
 
+var $entriesAnchor = document.querySelector('.row > .header-link');
+
+$entriesAnchor.addEventListener('click', viewSwap);
+
 toggleNoEntries();
-viewSwap();

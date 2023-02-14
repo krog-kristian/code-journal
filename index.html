@@ -23,16 +23,17 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="column-full">
-          <h1 class="white-text">Code Journal</h1>
-        </div>
+
+        <h1 class="white-text">Code Journal</h1>
+        <a class="header-link" data-view="entries">Entries</a>
+
       </div>
     </div>
   </header>
 
   <main class="container">
 
-    <div data-view="entry-form" class="hidden">
+    <div data-view="entry-form">
       <h2>New Entry</h2>
       <form action="" class="row">
         <div class="column-half journal-photo"><img src="images/placeholder-image-square.jpg" alt="place holder for image"></div>
@@ -55,7 +56,7 @@
 
     </div>
 
-    <div data-view="entries">
+    <div data-view="entries" class="hidden">
       <div class="row">
         <div class="column-full space-between">
           <h2>Entries</h2>
