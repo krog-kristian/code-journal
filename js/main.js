@@ -65,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 var $noEntries = document.querySelector('div[data-view=entries] .text-cen p');
-// console.log('p', $noEntries);
-// console.log($noEntries.classList[0]);
+
 function toggleNoEntries() {
   if ($noEntries.classList.contains('hidden')) {
     $noEntries.classList.remove('hidden');
