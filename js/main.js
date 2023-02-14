@@ -87,3 +87,7 @@ var $entriesAnchor = document.querySelector('.row > .header-link');
 $entriesAnchor.addEventListener('click', viewSwap);
 
 toggleNoEntries();
+
+var $entriesFormAnchor = document.querySelector('#new-entry');
+
+$entriesFormAnchor.addEventListener('click', viewSwap);

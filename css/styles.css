@@ -109,6 +109,10 @@ textarea:focus {
   margin: 1rem 0;
 }
 
+#save:hover {
+  cursor: pointer;
+}
+
 #new-entry {
   border: none;
   border-radius: 0.25rem;
@@ -116,6 +120,11 @@ textarea:focus {
   background-color: #562b81;
   padding: 0.5rem 1rem;
   font-size: 1rem;
+  font-weight: 400;
   margin: 1rem 0;
   align-self: flex-end;
+}
+
+#new-entry:hover {
+  cursor: pointer;
 }
