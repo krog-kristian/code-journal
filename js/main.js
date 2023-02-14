@@ -47,4 +47,10 @@ function renderEntry(entry) {
   return $listEntry;
 }
 
-renderEntry();
+var $entryList = document.querySelector('ul');
+
+document.addEventListener('DOMContentLoaded', function () {
+  for (var i = 0; i < data.entries.length; i++) {
+    $entryList.appendChild(renderEntry(data.entries[i]));
+  }
+});
