@@ -15,6 +15,15 @@ h2 {
   margin: 1rem auto;
 }
 
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
 @media screen and (min-width: 768px) {
   h2 {
     padding: 0 0.75rem;
@@ -44,6 +53,11 @@ header {
 }
 
 .journal-photo > img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.entry-photos > img {
   width: 100%;
   border-radius: 0.5rem;
 }
