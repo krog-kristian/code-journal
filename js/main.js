@@ -155,3 +155,13 @@ $deleteButton.addEventListener('click', function () {
   $popup.classList.remove('hidden');
 }
 );
+
+var $cancelButton = document.querySelector('#cancel');
+// var $confirmButton = document.querySelector('#confirm');
+
+$popup.addEventListener('click', function () {
+  if (event.target === $cancelButton) {
+    $popup.classList.add('hidden');
+  }
+}
+);
