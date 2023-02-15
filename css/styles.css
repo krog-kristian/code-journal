@@ -127,6 +127,7 @@ li {
 }
 
 /* Buttons and Inputs */
+
 input:focus,
 textarea:focus {
   border: 3px solid #562b81;
@@ -193,6 +194,21 @@ textarea:focus {
 .fa-pencil:hover {
   cursor: pointer;
   transform: rotate(45deg);
+}
+
+.fa-arrows-up-down {
+  color: #562b81;
+  transform: scale(1.5);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  transition: transform 0.75s ease-in-out;
+}
+
+.fa-arrows-up-down:hover {
+  cursor: pointer;
+  transform:
+    rotate(180deg)
+    scale(2);
 }
 
 #delete {

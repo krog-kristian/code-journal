@@ -186,15 +186,17 @@ $popup.addEventListener('click', function () {
 
 // Stretch Features
 
+// Search Bar
+
 var $searchBar = document.querySelector('#search');
 
 $searchBar.addEventListener('input', searchAndRender);
 var currentIds = [];
+var $liLst = document.querySelectorAll('li');
 
 function searchAndRender(event) {
   var $titleList = document.querySelectorAll('h3');
-  var $liLst = document.querySelectorAll('li');
-  // console.log('event.target.value:', event.target.value);
+  $liLst = document.querySelectorAll('li');
   for (var i = 0; i < $titleList.length; i++) {
     if (!$titleList[i].textContent.toLowerCase().includes(event.target.value.toLowerCase())) {
       $liLst[i].remove();
@@ -222,3 +224,32 @@ function searchAndRender(event) {
   }
   currentIds = [];
 }
+
+// Reverse Entries
+
+var $reverseArrows = document.querySelector('.fa-arrows-up-down');
+
+var reverseOrder = false;
+
+$reverseArrows.addEventListener('click', function () {
+  if (reverseOrder === false) {
+    $liLst = document.querySelectorAll('li');
+    for (var i = 0; i < $liLst.length; i++) {
+      $liLst[i].remove();
+    }
+    for (i = data.entries.length - 1; i >= 0; i--) {
+      $entryList.appendChild(renderEntry(data.entries[i]));
+    }
+    reverseOrder = true;
+  } else {
+    $liLst = document.querySelectorAll('li');
+    for (i = 0; i < $liLst.length; i++) {
+      $liLst[i].remove();
+    }
+    for (i = 0; i < data.entries.length; i++) {
+      $entryList.appendChild(renderEntry(data.entries[i]));
+    }
+    reverseOrder = false;
+  }
+}
+);
