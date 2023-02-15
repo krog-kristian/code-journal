@@ -17,12 +17,21 @@ function save(event) {
   formInput.title = $formJournal.elements.title.value;
   formInput.photo = $formJournal.elements.photo.value;
   formInput.notes = $formJournal.elements.notes.value;
-  formInput.entryId = data.nextEntryId;
-  data.nextEntryId += 1;
-  data.entries.unshift(formInput);
+  if (!data.editing) {
+    formInput.entryId = data.nextEntryId;
+    data.nextEntryId += 1;
+    data.entries.unshift(formInput);
+    $entryList.prepend(renderEntry(formInput));
+  } else {
+    formInput.entryId = data.editing.entryId;
+    data.entries[data.entries.length - data.editing.entryId] = formInput;
+    var $liReplace = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+    $liReplace.replaceWith(renderEntry(formInput));
+    $formHeading.textContent = 'New Entry';
+    data.editing = null;
+  }
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
-  $entryList.prepend(renderEntry(formInput));
   viewSwap('entries');
   if ($noEntries.classList.length === 0) {
     toggleNoEntries();
