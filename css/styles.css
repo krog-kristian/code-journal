@@ -6,8 +6,14 @@ body {
 }
 
 h1 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-weight: 400;
+  font-family:
+    "EB Garamond",
+    "Source Sans Pro",
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
 h2 {
@@ -22,6 +28,7 @@ h3 {
 p {
   font-size: 1.25rem;
   font-weight: 400;
+  white-space: pre-wrap;
 }
 
 @media screen and (min-width: 768px) {
@@ -100,6 +107,7 @@ textarea:focus {
   margin: auto 2rem;
   font-size: 1.5rem;
   font-weight: 400;
+  transition: transform 0.25s ease-in-out;
 }
 
 .header-link:hover {
@@ -120,10 +128,12 @@ textarea:focus {
     Arial,
     Helvetica,
     sans-serif;
+  transition: transform 0.25s ease-in-out;
 }
 
 #save:hover {
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 #new-entry {
@@ -136,8 +146,20 @@ textarea:focus {
   font-weight: 400;
   margin: 1rem 0;
   align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
 }
 
 #new-entry:hover {
   cursor: pointer;
+  transform: scale(1.05);
+}
+
+.fa-pencil {
+  color: #562b81;
+  transition: transform 0.5s ease-in-out;
+}
+
+.fa-pencil:hover {
+  cursor: pointer;
+  transform: rotate(45deg);
 }

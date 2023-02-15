@@ -17,12 +17,25 @@ function save(event) {
   formInput.title = $formJournal.elements.title.value;
   formInput.photo = $formJournal.elements.photo.value;
   formInput.notes = $formJournal.elements.notes.value;
-  formInput.entryId = data.nextEntryId;
-  data.nextEntryId += 1;
-  data.entries.unshift(formInput);
+  if (!data.editing) {
+    formInput.entryId = data.nextEntryId;
+    data.nextEntryId += 1;
+    data.entries.unshift(formInput);
+    $entryList.prepend(renderEntry(formInput));
+  } else {
+    formInput.entryId = data.editing.entryId;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (formInput.entryId === data.entries[i].entryId) {
+        data.entries[i] = formInput;
+      }
+    }
+    var $liReplace = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+    $liReplace.replaceWith(renderEntry(formInput));
+    $formHeading.textContent = 'New Entry';
+    data.editing = null;
+  }
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
-  $entryList.prepend(renderEntry(formInput));
   viewSwap('entries');
   if ($noEntries.classList.length === 0) {
     toggleNoEntries();
@@ -34,16 +47,23 @@ function save(event) {
 function renderEntry(entry) {
   var $listEntry = document.createElement('li');
   $listEntry.setAttribute('class', 'row');
+  $listEntry.setAttribute('data-entry-id', entry.entryId);
   var $photoDiv = document.createElement('div');
   var $image = document.createElement('img');
   $photoDiv.setAttribute('class', 'column-half entry-photos');
   $image.setAttribute('src', entry.photo);
+  $image.setAttribute('alt', 'Picture of: ' + entry.title);
   $photoDiv.appendChild($image);
   $listEntry.appendChild($photoDiv);
   var $textDiv = document.createElement('div');
   $textDiv.setAttribute('class', 'column-half');
   var $entryTitle = document.createElement('h3');
   $entryTitle.textContent = entry.title;
+  $entryTitle.setAttribute('class', 'space-between');
+  var $faPencil = document.createElement('i');
+  $faPencil.setAttribute('class', 'fa fa-pencil');
+  $faPencil.setAttribute('aria-hidden', 'true');
+  $entryTitle.appendChild($faPencil);
   $textDiv.appendChild($entryTitle);
   var $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes;
@@ -76,16 +96,16 @@ function toggleNoEntries() {
 
 function viewSwap(view) {
   if (view === 'entries') {
-    var $view = document.querySelector('div[data-view=entries]');
+    var $view = document.querySelector('div[data-view="entries"]');
     $view.setAttribute('class', '');
     data.view = view;
-    var $oldView = document.querySelector('div[data-view=entry-form');
+    var $oldView = document.querySelector('div[data-view="entry-form"]');
     $oldView.setAttribute('class', 'hidden');
   } else {
-    $view = document.querySelector('div[data-view=entry-form]');
+    $view = document.querySelector('div[data-view="entry-form"]');
     $view.setAttribute('class', '');
     data.view = view;
-    $oldView = document.querySelector('div[data-view=entries');
+    $oldView = document.querySelector('div[data-view="entries"');
     $oldView.setAttribute('class', 'hidden');
   }
 }
@@ -103,3 +123,23 @@ $entriesFormAnchor.addEventListener('click', function () {
   var viewTarget = $entriesFormAnchor.getAttribute('data-view');
   viewSwap(viewTarget);
 });
+
+// Editing
+var $formHeading = document.querySelector('div[data-view="entry-form"] h2');
+
+$entryList.addEventListener('click', function () {
+  viewSwap('entry-form');
+  var $selectedEntry = event.target.closest('li');
+  var selectedId = $selectedEntry.getAttribute('data-entry-id');
+  for (var i = 0; i < data.entries.length; i++) {
+    if (Number(selectedId) === data.entries[i].entryId) {
+      data.editing = data.entries[i];
+    }
+  }
+  $formJournal.elements.title.value = data.editing.title;
+  $formJournal.elements.photo.value = data.editing.photo;
+  $formJournal.elements.notes.value = data.editing.notes;
+  $photoImage.setAttribute('src', data.editing.photo);
+  $formHeading.textContent = 'Edit Entry';
+}
+);
