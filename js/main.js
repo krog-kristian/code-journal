@@ -67,7 +67,7 @@ function renderEntry(entry) {
   $entryTitle.appendChild($faPencil);
   $textDiv.appendChild($entryTitle);
   var $paragraph = document.createElement('p');
-  $paragraph.textContent = entry.notes;
+  $paragraph.textContent = entry.notes.trim();
   $textDiv.appendChild($paragraph);
   $listEntry.appendChild($textDiv);
   return $listEntry;
