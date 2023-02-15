@@ -124,5 +124,6 @@ $entryList.addEventListener('click', function () {
   $formJournal.elements.title.value = data.editing.title;
   $formJournal.elements.photo.value = data.editing.photo;
   $formJournal.elements.notes.value = data.editing.notes;
+  $photoImage.setAttribute('src', data.editing.photo);
 }
 );
