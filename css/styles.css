@@ -23,6 +23,7 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  margin-top: 0;
 }
 
 p {
@@ -60,7 +61,14 @@ header {
 }
 
 ul {
+  margin-top: 0;
   padding: 0;
+}
+
+li {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-top: 0.05rem solid #562b81;
 }
 
 .journal-photo > img {
