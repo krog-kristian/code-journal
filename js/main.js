@@ -24,7 +24,11 @@ function save(event) {
     $entryList.prepend(renderEntry(formInput));
   } else {
     formInput.entryId = data.editing.entryId;
-    data.entries[data.entries.length - data.editing.entryId] = formInput;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (formInput.entryId === data.entries[i].entryId) {
+        data.entries[i] = formInput;
+      }
+    }
     var $liReplace = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
     $liReplace.replaceWith(renderEntry(formInput));
     $formHeading.textContent = 'New Entry';
