@@ -250,3 +250,8 @@ textarea:focus {
   cursor: pointer;
   transform: scale(1.05);
 }
+
+#search {
+  width: 15rem;
+  margin-bottom: 1rem;
+}
