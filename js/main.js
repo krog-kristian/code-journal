@@ -82,16 +82,16 @@ function toggleNoEntries() {
 
 function viewSwap(view) {
   if (view === 'entries') {
-    var $view = document.querySelector('div[data-view=entries]');
+    var $view = document.querySelector('div[data-view="entries"]');
     $view.setAttribute('class', '');
     data.view = view;
-    var $oldView = document.querySelector('div[data-view=entry-form');
+    var $oldView = document.querySelector('div[data-view="entry-form"]');
     $oldView.setAttribute('class', 'hidden');
   } else {
-    $view = document.querySelector('div[data-view=entry-form]');
+    $view = document.querySelector('div[data-view="entry-form"]');
     $view.setAttribute('class', '');
     data.view = view;
-    $oldView = document.querySelector('div[data-view=entries');
+    $oldView = document.querySelector('div[data-view="entries"');
     $oldView.setAttribute('class', 'hidden');
   }
 }
@@ -111,6 +111,7 @@ $entriesFormAnchor.addEventListener('click', function () {
 });
 
 // Editing
+var $formHeading = document.querySelector('div[data-view="entry-form"] h2');
 
 $entryList.addEventListener('click', function () {
   viewSwap('entry-form');
@@ -125,5 +126,6 @@ $entryList.addEventListener('click', function () {
   $formJournal.elements.photo.value = data.editing.photo;
   $formJournal.elements.notes.value = data.editing.notes;
   $photoImage.setAttribute('src', data.editing.photo);
+  $formHeading.textContent = 'Edit Entry';
 }
 );
