@@ -100,10 +100,6 @@ ul {
 }
 
 /* Utilities */
-.flex-end {
-  display: flex;
-  justify-content: flex-end;
-}
 
 .white-text {
   color: white;
@@ -214,8 +210,8 @@ textarea:focus {
 #cancel {
   border: none;
   border-radius: 0.25rem;
-  color: white;
-  background-color: slategray;
+  color: black;
+  background-color: #acacac;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
   font-weight: 400;

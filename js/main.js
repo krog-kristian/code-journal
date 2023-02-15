@@ -178,6 +178,8 @@ $popup.addEventListener('click', function () {
     data.editing = null;
     $formJournal.reset();
     $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $deleteButton.classList.add('hidden');
+    $formHeading.textContent = 'New Entry';
   }
 }
 );
