@@ -52,6 +52,7 @@ function renderEntry(entry) {
   var $image = document.createElement('img');
   $photoDiv.setAttribute('class', 'column-half entry-photos');
   $image.setAttribute('src', entry.photo);
+  $image.setAttribute('alt', 'Picture of: ' + entry.title);
   $photoDiv.appendChild($image);
   $listEntry.appendChild($photoDiv);
   var $textDiv = document.createElement('div');
