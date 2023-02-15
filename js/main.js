@@ -157,11 +157,27 @@ $deleteButton.addEventListener('click', function () {
 );
 
 var $cancelButton = document.querySelector('#cancel');
-// var $confirmButton = document.querySelector('#confirm');
+var $confirmButton = document.querySelector('#confirm');
 
 $popup.addEventListener('click', function () {
   if (event.target === $cancelButton) {
     $popup.classList.add('hidden');
+  } else if (event.target === $confirmButton) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryId === data.entries[i].entryId) {
+        data.entries.splice(i, 1);
+      }
+    }
+    var $removeLi = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+    $removeLi.remove();
+    if (data.entries.length === 0) {
+      toggleNoEntries();
+    }
+    $popup.classList.add('hidden');
+    viewSwap('entries');
+    data.editing = null;
+    $formJournal.reset();
+    $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
 }
 );
