@@ -73,6 +73,32 @@ ul {
   border-radius: 0.5rem;
 }
 
+#popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #12121288;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > p {
+  font-weight: 600;
+}
+
+.modal {
+  position: relative;
+  top: -5rem;
+  background-color: #f0f0f0;
+  width: 25rem;
+  padding: 1rem 0.75rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+}
+
 /* Utilities */
 .flex-end {
   display: flex;
@@ -181,6 +207,42 @@ textarea:focus {
 }
 
 #delete:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#cancel {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: slategray;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
+}
+
+#cancel:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#confirm {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: red;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
+}
+
+#confirm:hover {
   cursor: pointer;
   transform: scale(1.05);
 }

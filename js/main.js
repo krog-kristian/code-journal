@@ -146,3 +146,12 @@ $entryList.addEventListener('click', function () {
   $deleteButton.classList.remove('hidden');
 }
 );
+
+// Deleting Entries
+
+var $popup = document.querySelector('#popup');
+
+$deleteButton.addEventListener('click', function () {
+  $popup.classList.remove('hidden');
+}
+);
