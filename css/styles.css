@@ -116,6 +116,7 @@ textarea:focus {
 }
 
 #save {
+  align-self: flex-end;
   border: none;
   border-radius: 0.25rem;
   color: white;
@@ -162,4 +163,24 @@ textarea:focus {
 .fa-pencil:hover {
   cursor: pointer;
   transform: rotate(45deg);
+}
+
+#delete {
+  border: none;
+  color: red;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0;
+  text-decoration: underline;
+  font-family:
+    "Source Sans Pro",
+    Arial,
+    Helvetica,
+    sans-serif;
+  transition: transform 0.25s ease-in-out;
+}
+
+#delete:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

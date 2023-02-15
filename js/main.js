@@ -33,6 +33,7 @@ function save(event) {
     $liReplace.replaceWith(renderEntry(formInput));
     $formHeading.textContent = 'New Entry';
     data.editing = null;
+    $deleteButton.classList.add('hidden');
   }
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
@@ -126,6 +127,7 @@ $entriesFormAnchor.addEventListener('click', function () {
 
 // Editing
 var $formHeading = document.querySelector('div[data-view="entry-form"] h2');
+var $deleteButton = document.querySelector('#delete');
 
 $entryList.addEventListener('click', function () {
   viewSwap('entry-form');
@@ -141,5 +143,6 @@ $entryList.addEventListener('click', function () {
   $formJournal.elements.notes.value = data.editing.notes;
   $photoImage.setAttribute('src', data.editing.photo);
   $formHeading.textContent = 'Edit Entry';
+  $deleteButton.classList.remove('hidden');
 }
 );
