@@ -33,6 +33,7 @@ function save(event) {
     $liReplace.replaceWith(renderEntry(formInput));
     $formHeading.textContent = 'New Entry';
     data.editing = null;
+    $deleteButton.classList.add('hidden');
   }
   $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formJournal.reset();
@@ -66,7 +67,7 @@ function renderEntry(entry) {
   $entryTitle.appendChild($faPencil);
   $textDiv.appendChild($entryTitle);
   var $paragraph = document.createElement('p');
-  $paragraph.textContent = entry.notes;
+  $paragraph.textContent = entry.notes.trim();
   $textDiv.appendChild($paragraph);
   $listEntry.appendChild($textDiv);
   return $listEntry;
@@ -126,6 +127,7 @@ $entriesFormAnchor.addEventListener('click', function () {
 
 // Editing
 var $formHeading = document.querySelector('div[data-view="entry-form"] h2');
+var $deleteButton = document.querySelector('#delete');
 
 $entryList.addEventListener('click', function () {
   viewSwap('entry-form');
@@ -141,5 +143,43 @@ $entryList.addEventListener('click', function () {
   $formJournal.elements.notes.value = data.editing.notes;
   $photoImage.setAttribute('src', data.editing.photo);
   $formHeading.textContent = 'Edit Entry';
+  $deleteButton.classList.remove('hidden');
+}
+);
+
+// Deleting Entries
+
+var $popup = document.querySelector('#popup');
+
+$deleteButton.addEventListener('click', function () {
+  $popup.classList.remove('hidden');
+}
+);
+
+var $cancelButton = document.querySelector('#cancel');
+var $confirmButton = document.querySelector('#confirm');
+
+$popup.addEventListener('click', function () {
+  if (event.target === $cancelButton) {
+    $popup.classList.add('hidden');
+  } else if (event.target === $confirmButton) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryId === data.entries[i].entryId) {
+        data.entries.splice(i, 1);
+      }
+    }
+    var $removeLi = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+    $removeLi.remove();
+    if (data.entries.length === 0) {
+      toggleNoEntries();
+    }
+    $popup.classList.add('hidden');
+    viewSwap('entries');
+    data.editing = null;
+    $formJournal.reset();
+    $photoImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $deleteButton.classList.add('hidden');
+    $formHeading.textContent = 'New Entry';
+  }
 }
 );

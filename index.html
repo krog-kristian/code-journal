@@ -34,6 +34,16 @@
 
   <main class="container">
 
+    <div class="hidden" id="popup">
+      <div class="modal">
+        <p>Are you sure you want to delete this entry?</p>
+        <div class="space-between">
+          <button id="cancel">CANCEL</button>
+          <button id="confirm">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+
     <div data-view="entry-form">
       <h2>New Entry</h2>
       <form action="" class="row">
@@ -51,7 +61,10 @@
           <textarea name="notes" id="notes" rows="10" required></textarea>
         </div>
 
-        <div class="column-full flex-end"><button type="submit" id="save">SAVE</button></div>
+        <div class="column-full space-between">
+          <div><button type="button" class="hidden" id="delete">Delete Entry</button></div>
+          <button type="submit" id="save">SAVE</button>
+        </div>
 
       </form>
 

@@ -23,6 +23,7 @@ h2 {
 
 h3 {
   font-size: 1.75rem;
+  margin-top: 0;
 }
 
 p {
@@ -60,7 +61,14 @@ header {
 }
 
 ul {
+  margin-top: 0;
   padding: 0;
+}
+
+li {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-top: 0.05rem solid #562b81;
 }
 
 .journal-photo > img {
@@ -73,11 +81,33 @@ ul {
   border-radius: 0.5rem;
 }
 
-/* Utilities */
-.flex-end {
+#popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #12121288;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
+
+.modal > p {
+  font-weight: 600;
+}
+
+.modal {
+  position: relative;
+  top: -5rem;
+  background-color: #f0f0f0;
+  width: 25rem;
+  padding: 1rem 0.75rem;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+}
+
+/* Utilities */
 
 .white-text {
   color: white;
@@ -116,6 +146,7 @@ textarea:focus {
 }
 
 #save {
+  align-self: flex-end;
   border: none;
   border-radius: 0.25rem;
   color: white;
@@ -162,4 +193,60 @@ textarea:focus {
 .fa-pencil:hover {
   cursor: pointer;
   transform: rotate(45deg);
+}
+
+#delete {
+  border: none;
+  color: red;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0;
+  text-decoration: underline;
+  font-family:
+    "Source Sans Pro",
+    Arial,
+    Helvetica,
+    sans-serif;
+  transition: transform 0.25s ease-in-out;
+}
+
+#delete:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#cancel {
+  border: none;
+  border-radius: 0.25rem;
+  color: black;
+  background-color: #acacac;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
+}
+
+#cancel:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#confirm {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: red;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
+}
+
+#confirm:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
