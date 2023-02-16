@@ -195,10 +195,10 @@ $entryList.addEventListener('click', function () {
       if (data.entries[i].entryId === $currentEntry && $inputTag.value !== '') {
         if (!data.entries[i].tags) {
           data.entries[i].tags = [];
-          data.entries[i].tags.push($inputTag.value.trim());
+          data.entries[i].tags.push($inputTag.value.toUpperCase().trim());
           $selectedEntry.replaceWith(renderEntry(data.entries[i]));
         } else {
-          data.entries[i].tags.push($inputTag.value.trim());
+          data.entries[i].tags.push($inputTag.value.toUpperCase().trim());
           $selectedEntry.replaceWith(renderEntry(data.entries[i]));
         }
       }
@@ -272,11 +272,16 @@ var $liLst = document.querySelectorAll('li');
 function searchAndRender(event) {
   var $titleList = document.querySelectorAll('h3');
   $liLst = document.querySelectorAll('li');
+  // var $tagsList = document.querySelectorAll('.tag > p');
   for (var i = 0; i < $titleList.length; i++) {
+    // Removes non matches
     if (!$titleList[i].textContent.toLowerCase().includes(event.target.value.toLowerCase())) {
       $liLst[i].remove();
     }
   }
+  // !$tagsList.textContent.includes(event.target.value.toUpperCase())
+  // data.entries[k].tags.includes(event.target.value.toUpperCase())
+  // checks current li elements to current search value
   for (var k = 0; k < data.entries.length; k++) {
     if (data.entries[k].title.toLowerCase().includes(event.target.value)) {
       $liLst = document.querySelectorAll('li');
@@ -288,6 +293,7 @@ function searchAndRender(event) {
       }
     }
   }
+  // Refreshes page when searchbar is empty.
   if (event.target.value === '') {
     $liLst = document.querySelectorAll('li');
     for (i = 0; i < $liLst.length; i++) {
