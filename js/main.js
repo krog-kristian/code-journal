@@ -192,7 +192,7 @@ $entryList.addEventListener('click', function () {
     $inputTag = document.querySelector('.tag-input');
     var $currentEntry = Number(event.target.closest('li').getAttribute('data-entry-id'));
     for (i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].entryId === $currentEntry) {
+      if (data.entries[i].entryId === $currentEntry && $inputTag.value !== '') {
         if (!data.entries[i].tags) {
           data.entries[i].tags = [];
           data.entries[i].tags.push($inputTag.value.trim());
