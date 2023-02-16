@@ -71,6 +71,20 @@ function renderEntry(entry) {
   $editDiv.appendChild($faPencil);
   $entryTitle.appendChild($editDiv);
   $textDiv.appendChild($entryTitle);
+  if (entry.tags !== undefined) {
+    for (var i = 0; i < entry.tags.length; i++) {
+      var $divTag = document.createElement('div');
+      $divTag.classList.add('tag');
+      var $tagName = document.createElement('p');
+      $tagName.textContent = entry.tags[i];
+      var $tagButton = document.createElement('button');
+      $tagButton.classList.add('tag-remove');
+      $tagButton.textContent = 'x';
+      $divTag.appendChild($tagName);
+      $divTag.appendChild($tagButton);
+      $entryTitle.after($divTag);
+    }
+  }
   var $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes.trim();
   $textDiv.appendChild($paragraph);
@@ -163,7 +177,7 @@ $entryList.addEventListener('click', function () {
         $inputDiv.classList.add('space-between');
         var $inputTag = document.createElement('input');
         $inputTag.setAttribute('type', 'text');
-        $inputTag.setAttribute('class', 'name');
+        $inputTag.setAttribute('class', 'tag-input');
         var $inputButton = document.createElement('button');
         $inputButton.classList.add('add-tag');
         $inputButton.textContent = 'Add';
@@ -176,11 +190,29 @@ $entryList.addEventListener('click', function () {
     }
   }
   if (event.target.matches('.add-tag')) {
+    $inputTag = document.querySelector('.tag-input');
+    var $currentEntry = Number(event.target.closest('li').getAttribute('data-entry-id'));
+    for (i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === $currentEntry) {
+        if (!data.entries[i].tags) {
+          data.entries[i].tags = [];
+          data.entries[i].tags.push($inputTag.value.trim());
+          $selectedEntry.replaceWith(renderEntry(data.entries[i]));
+        } else {
+          data.entries[i].tags.push($inputTag.value.trim());
+          $selectedEntry.replaceWith(renderEntry(data.entries[i]));
+        }
+      }
+      event.target.parentElement.remove();
+    }
     // code under adds back tags
     $tags = document.querySelectorAll('.fa-tag');
     for (i = 0; i < $tags.length; i++) {
       $tags[i].classList.remove('hidden');
     }
+  }
+  if (event.target.matches('.tag-remove')) {
+    // console.log('trying to remove.');
   }
 }
 );

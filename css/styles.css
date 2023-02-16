@@ -276,11 +276,12 @@ textarea:focus {
 .tag {
   border: solid 0.05rem #562b81;
   border-radius: 1rem;
-  display: flex;
+  max-width: max-content;
+  display: inline-flex;
   align-items: center;
   padding: 0 0.5rem;
-  height: 50%;
   box-shadow: 0.1rem 0.1rem #562b81;
+  margin: 0.1rem;
 }
 
 .tag > p {
