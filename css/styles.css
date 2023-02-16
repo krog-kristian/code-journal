@@ -310,3 +310,21 @@ textarea:focus {
   cursor: pointer;
   transform: scale(1.2);
 }
+
+.add-tag {
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #562b81;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0.5rem;
+  align-self: flex-end;
+  transition: transform 0.25s ease-in-out;
+}
+
+.add-tag:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

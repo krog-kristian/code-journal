@@ -155,15 +155,35 @@ $entryList.addEventListener('click', function () {
     // console.log('add a tag!');
     for (i = 0; i < data.entries.length; i++) {
       if (Number(selectedId) === data.entries[i].entryId) {
+        var $tags = document.querySelectorAll('.fa-tag');
+        for (i = 0; i < $tags.length; i++) {
+          $tags[i].classList.add('hidden');
+        }
+        var $inputDiv = document.createElement('div');
+        $inputDiv.classList.add('space-between');
         var $inputTag = document.createElement('input');
+        $inputTag.setAttribute('type', 'text');
+        $inputTag.setAttribute('class', 'name');
+        var $inputButton = document.createElement('button');
+        $inputButton.classList.add('add-tag');
+        $inputButton.textContent = 'Add';
+        $inputTag.setAttribute('placeholder', 'Add a Tag');
+        $inputDiv.appendChild($inputTag);
+        $inputDiv.appendChild($inputButton);
         var $rightDiv = event.target.closest('h3');
-        $rightDiv.appendChild($inputTag);
+        $rightDiv.after($inputDiv);
       }
+    }
+  }
+  if (event.target.matches('.add-tag')) {
+    // code under adds back tags
+    $tags = document.querySelectorAll('.fa-tag');
+    for (i = 0; i < $tags.length; i++) {
+      $tags[i].classList.remove('hidden');
     }
   }
 }
 );
-
 // Deleting Entries
 
 var $popup = document.querySelector('#popup');
