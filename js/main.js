@@ -62,9 +62,14 @@ function renderEntry(entry) {
   $entryTitle.textContent = entry.title;
   $entryTitle.setAttribute('class', 'space-between');
   var $faPencil = document.createElement('i');
+  var $editDiv = document.createElement('div');
   $faPencil.setAttribute('class', 'fa fa-pencil');
   $faPencil.setAttribute('aria-hidden', 'true');
-  $entryTitle.appendChild($faPencil);
+  var $faTag = document.createElement('i');
+  $faTag.setAttribute('class', 'fa-sharp fa-solid fa-tag');
+  $editDiv.appendChild($faTag);
+  $editDiv.appendChild($faPencil);
+  $entryTitle.appendChild($editDiv);
   $textDiv.appendChild($entryTitle);
   var $paragraph = document.createElement('p');
   $paragraph.textContent = entry.notes.trim();

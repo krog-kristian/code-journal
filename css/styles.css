@@ -116,6 +116,7 @@ li {
 .space-between {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .text-cen {
@@ -270,4 +271,42 @@ textarea:focus {
 #search {
   width: 15rem;
   margin-bottom: 1rem;
+}
+
+.tag {
+  border: solid 0.05rem #562b81;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 50%;
+  box-shadow: 0.1rem 0.1rem #562b81;
+}
+
+.tag > p {
+  margin: 0 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #562b81;
+}
+
+.tag-remove {
+  padding: 0;
+  margin: 0 0.3rem;
+  border: none;
+}
+
+.tag-remove:hover {
+  cursor: pointer;
+}
+
+.fa-tag {
+  color: #562b81;
+  padding: 0.5rem;
+  margin: 0 1rem;
+}
+
+.fa-tag:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
