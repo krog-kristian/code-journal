@@ -166,7 +166,6 @@ $entryList.addEventListener('click', function () {
     $deleteButton.classList.remove('hidden');
   }
   if (event.target.matches('.fa-tag')) {
-    // console.log('add a tag!');
     for (i = 0; i < data.entries.length; i++) {
       if (Number(selectedId) === data.entries[i].entryId) {
         var $tags = document.querySelectorAll('.fa-tag');
@@ -212,7 +211,14 @@ $entryList.addEventListener('click', function () {
     }
   }
   if (event.target.matches('.tag-remove')) {
-    // console.log('trying to remove.');
+    var tagText = event.target.parentNode.childNodes[0].textContent;
+    for (i = 0; i < data.entries.length; i++) {
+      if (Number(selectedId) === data.entries[i].entryId) {
+        var tagRemove = data.entries[i].tags.indexOf(tagText);
+        data.entries[i].tags.splice(tagRemove, 1);
+      }
+    }
+    event.target.parentNode.remove();
   }
 }
 );
