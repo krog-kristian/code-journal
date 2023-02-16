@@ -268,17 +268,29 @@ var $searchBar = document.querySelector('#search');
 $searchBar.addEventListener('input', searchAndRender);
 var currentIds = [];
 var $liLst = document.querySelectorAll('li');
+// var $tagsArrayed = [];
 
 function searchAndRender(event) {
   var $titleList = document.querySelectorAll('h3');
   $liLst = document.querySelectorAll('li');
   // var $tagsList = document.querySelectorAll('.tag > p');
+  /* $tagsArrayed = [];
+  for (var k = 0; k < $liLst.length; k++) {
+    var $tagsList = $liLst[k].querySelectorAll('.tag > p');
+  }
+  for (var j = 0; j < $tagsList.length; j++) {
+    var $tagString = '';
+    $tagString += $tagsList[k][j].textContent;
+    console.log('arrayed tgs:', $tagString);
+  }
+  $tagsArrayed.push($tagString); */
   for (var i = 0; i < $titleList.length; i++) {
     // Removes non matches
     if (!$titleList[i].textContent.toLowerCase().includes(event.target.value.toLowerCase())) {
       $liLst[i].remove();
     }
   }
+  // idea for tag search, turn tags into a single string for each entry, then your only searching a single string like the title?
   // !$tagsList.textContent.includes(event.target.value.toUpperCase())
   // data.entries[k].tags.includes(event.target.value.toUpperCase())
   // checks current li elements to current search value
