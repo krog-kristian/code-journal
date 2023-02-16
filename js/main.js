@@ -135,20 +135,22 @@ var $formHeading = document.querySelector('div[data-view="entry-form"] h2');
 var $deleteButton = document.querySelector('#delete');
 
 $entryList.addEventListener('click', function () {
-  viewSwap('entry-form');
-  var $selectedEntry = event.target.closest('li');
-  var selectedId = $selectedEntry.getAttribute('data-entry-id');
-  for (var i = 0; i < data.entries.length; i++) {
-    if (Number(selectedId) === data.entries[i].entryId) {
-      data.editing = data.entries[i];
+  if (event.target.matches('.fa-pencil')) {
+    viewSwap('entry-form');
+    var $selectedEntry = event.target.closest('li');
+    var selectedId = $selectedEntry.getAttribute('data-entry-id');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (Number(selectedId) === data.entries[i].entryId) {
+        data.editing = data.entries[i];
+      }
     }
+    $formJournal.elements.title.value = data.editing.title;
+    $formJournal.elements.photo.value = data.editing.photo;
+    $formJournal.elements.notes.value = data.editing.notes;
+    $photoImage.setAttribute('src', data.editing.photo);
+    $formHeading.textContent = 'Edit Entry';
+    $deleteButton.classList.remove('hidden');
   }
-  $formJournal.elements.title.value = data.editing.title;
-  $formJournal.elements.photo.value = data.editing.photo;
-  $formJournal.elements.notes.value = data.editing.notes;
-  $photoImage.setAttribute('src', data.editing.photo);
-  $formHeading.textContent = 'Edit Entry';
-  $deleteButton.classList.remove('hidden');
 }
 );
 
