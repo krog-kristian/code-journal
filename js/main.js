@@ -17,6 +17,7 @@ function save(event) {
   formInput.title = $formJournal.elements.title.value;
   formInput.photo = $formJournal.elements.photo.value;
   formInput.notes = $formJournal.elements.notes.value;
+  formInput.tags = [];
   if (!data.editing) {
     formInput.entryId = data.nextEntryId;
     data.nextEntryId += 1;
@@ -273,20 +274,19 @@ var $liLst = document.querySelectorAll('li');
 function searchAndRender(event) {
   var $titleList = document.querySelectorAll('h3');
   $liLst = document.querySelectorAll('li');
-  // var $tagsList = document.querySelectorAll('.tag > p');
-  /* $tagsArrayed = [];
+  var $tagsArrayed = [];
+  // creates an array containing all the tags as a signle string for each list item
   for (var k = 0; k < $liLst.length; k++) {
     var $tagsList = $liLst[k].querySelectorAll('.tag > p');
+    var tagText = '';
+    for (var j = 0; j < $tagsList.length; j++) {
+      tagText += $tagsList[j].textContent;
+    }
+    $tagsArrayed.push(tagText);
   }
-  for (var j = 0; j < $tagsList.length; j++) {
-    var $tagString = '';
-    $tagString += $tagsList[k][j].textContent;
-    console.log('arrayed tgs:', $tagString);
-  }
-  $tagsArrayed.push($tagString); */
   for (var i = 0; i < $titleList.length; i++) {
     // Removes non matches
-    if (!$titleList[i].textContent.toLowerCase().includes(event.target.value.toLowerCase())) {
+    if (!$titleList[i].textContent.toLowerCase().includes(event.target.value.toLowerCase()) && !$tagsArrayed[i].includes(event.target.value.toUpperCase())) {
       $liLst[i].remove();
     }
   }
@@ -294,16 +294,21 @@ function searchAndRender(event) {
   // !$tagsList.textContent.includes(event.target.value.toUpperCase())
   // data.entries[k].tags.includes(event.target.value.toUpperCase())
   // checks current li elements to current search value
-  for (var k = 0; k < data.entries.length; k++) {
-    if (data.entries[k].title.toLowerCase().includes(event.target.value)) {
+  for (k = 0; k < data.entries.length; k++) {
+    var currentTags = '';
+    for (var h = 0; h < data.entries[k].tags.length; h++) {
+      currentTags += data.entries[k].tags[h];
+    }
+    if (data.entries[k].title.toLowerCase().includes(event.target.value.toLowerCase()) || currentTags.includes(event.target.value.toUpperCase())) {
       $liLst = document.querySelectorAll('li');
-      for (var j = 0; j < $liLst.length; j++) {
+      for (j = 0; j < $liLst.length; j++) {
         currentIds.push(Number($liLst[j].getAttribute('data-entry-id')));
       }
       if (!currentIds.includes(data.entries[k].entryId)) {
         $entryList.appendChild(renderEntry(data.entries[k]));
       }
     }
+    // currentTags = '';
   }
   // Refreshes page when searchbar is empty.
   if (event.target.value === '') {
