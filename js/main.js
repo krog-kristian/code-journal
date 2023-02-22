@@ -290,10 +290,7 @@ function searchAndRender(event) {
       $liLst[i].remove();
     }
   }
-  // idea for tag search, turn tags into a single string for each entry, then your only searching a single string like the title?
-  // !$tagsList.textContent.includes(event.target.value.toUpperCase())
-  // data.entries[k].tags.includes(event.target.value.toUpperCase())
-  // checks current li elements to current search value
+  // checks current li elements to current search value, refreshes page on backspaces
   for (k = 0; k < data.entries.length; k++) {
     var currentTags = '';
     for (var h = 0; h < data.entries[k].tags.length; h++) {
@@ -308,7 +305,6 @@ function searchAndRender(event) {
         $entryList.appendChild(renderEntry(data.entries[k]));
       }
     }
-    // currentTags = '';
   }
   // Refreshes page when searchbar is empty.
   if (event.target.value === '') {
